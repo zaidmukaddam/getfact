@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Get a random or all fact from the database that you store">
+    <link rel="stylesheet" href="/public/styles/reset-1.css" />
+    <link rel="stylesheet" href="/public/build/styles/styles-N9PEN8HQ.css" />
+    <title>Get Fact API</title>
+    <link rel="shortcut icon" href="/public/build/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header-top">
+                <h1 class="header-title">Get Fact v1 API Documentation</h1>
+                <div class="header-contact">
+                    <a class="link" href="https://github.com/zaidmukaddam/getfact" target="_blank" rel="noopener noreferrer">
+                        Source code on Github
+                    </a>
+                    <div class="header-discord">
+                        <svg role="img" class="discord-icon" width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" aria-labelledby="svg-discord-title">
+                            <title id="svg-discord-title">Discord</title>
+                            <desc>Jody Geraldo on discord</desc>
+                            <use xlink:href="/public/assets/discord.svg#icon-discord" />
+                        </svg>
+                        <p>DarkGhoul&lt;Zaid&gt;#5221</p>
+                    </div>
+                </div>
+            </div>
+            <p class="header-description">
+                Get a random or all fact from the database that you store
+            </p>
+        </header>
+        <main>
+            <p>You need API Key to access your data</p>
+            <div>
+                <button id="generapi-api-key" class="btn">Generate API Key</button>
+                <span id="api-key"></span>
+            </div>
+
+            <section aria-labelledby="get-fact-heading">
+                <h2 id="get-fact-heading">Get your fact</h2>
+                <p>Get a random fact or all facts related to your API Key</p>
+                <p>Method: <span class="highlight">GET</span></p>
+                <p>Path: <span class="highlight">https://getfact.deno.dev/api/v1/fact</span></p>
+                <h3>Parameters</h3>
+                <div class="table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Parameter</th>
+                                <th scope="col">Required</th>
+                                <th scope="col">type</th>
+                                <th scope="col">Default</th>
+                                <th scope="col">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="tr-odd">
+                                <td class="font-medium">api_key</td>
+                                <td>Yes</td>
+                                <td>string</td>
+                                <td>-</td>
+                                <td>Your API Key</td>
+                            </tr>
+                            <tr class="tr-even">
+                                <td class="font-medium">single</td>
+                                <td>No</td>
+                                <td>boolean</td>
+                                <td>true</td>
+                                <td>
+                                    If <span class="highlight">true</span> return 1 random fact,
+                                    else return all facts
+                                </td>
+                            </tr>
+                            <tr class="tr-odd">
+                                <td class="font-medium">ignore</td>
+                                <td>No</td>
+                                <td>string</td>
+                                <td>-</td>
+                                <td>
+                                    only work if <span class="highlight">single</span> is
+                                    <span class="highlight">true.</span> Prevent getting the same
+                                    fact
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+                <p>
+                    Example:
+                <ul>
+                    <li>
+                        <p>
+                            Get one random fact
+                        </p>
+                        <span class="example">https://getfact.deno.dev/api/v1/fact?api_key=[API_KEY]</span>
+                    </li>
+                    <li>
+                        <p>
+                            Get one random fact and ignore fact
+                        </p>
+                        <span
+                            class="example">https://getfact.deno.dev/api/v1/fact?api_key=[API_KEY]&ignore=[FACT_TO_IGNORE]</span>
+                    </li>
+                    <li>
+                        <p>
+                            Get all facts
+                        </p>
+                        <span
+                            class="example">https://getfact.deno.dev/api/v1/fact?api_key=[API_KEY]&single=false</span>
+                    </li>
+                </ul>
+                </p>
+            </section>
+
+            <section aria-labelledby="add-fact-heading">
+                <h2 id="add-fact-heading">Add new fact</h2>
+                <p>add new fact to the database related to your API key</p>
+                <p>Method: <span class="highlight">POST</span></p>
+                <p>Path: <span class="highlight">https://getfact.deno.dev/api/v1/fact</span></p>
+                <h3>Parameters</h3>
+                <div class="table">
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Parameter</th>
+                                <th scope="col">Required</th>
+                                <th scope="col">type</th>
+                                <th scope="col">Default</th>
+                                <th scope="col">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="tr-odd">
+                                <td class="font-medium">api_key</td>
+                                <td>Yes</td>
+                                <td>string</td>
+                                <td>-</td>
+                                <td>Your API Key</td>
+                            </tr>
+                            <tr class="tr-even">
+                                <td class="font-medium">fact</td>
+                                <td>Yes</td>
+                                <td>string</td>
+                                <td>-</td>
+                                <td>
+                                    Fact to add to the database
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+            </section>
+
+            <section aria-labelledby="delete-fact-heading">
+                <h2 id="delete-fact-heading">Delete fact</h2>
+                <p>delete fact related to your API key</p>
+                <p>Method: <span class="highlight">DELETE</span></p>
+                <p>Path: <span class="highlight">https://getfact.deno.dev/api/v1/fact</span></p>
+                <h3>Parameters</h3>
+                <div class="table">
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Parameter</th>
+                                <th scope="col">Required</th>
+                                <th scope="col">type</th>
+                                <th scope="col">Default</th>
+                                <th scope="col">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="tr-odd">
+                                <td class="font-medium">api_key</td>
+                                <td>Yes</td>
+                                <td>string</td>
+                                <td>-</td>
+                                <td>Your API Key</td>
+                            </tr>
+                            <tr class="tr-even">
+                                <td class="font-medium">fact</td>
+                                <td>Yes</td>
+                                <td>string</td>
+                                <td>-</td>
+                                <td>
+                                    Fact to delete
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+            </section>
+
+        </main>
+
+        <footer>
+            <p class="license">
+                License under
+                <a class="link" href="http://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer">
+                    MIT License
+                </a>
+            </p>
+            <p class="copyright">Copyright &copy; 2022 Zaid Mukaddam</p>
+        </footer>
+    </div>
+    <script>
+        const button = document.getElementById('generapi-api-key')
+        const apiKey = document.getElementById('api-key')
+
+        button.addEventListener('click', () => {
+            const randomUUID = crypto.randomUUID()
+
+            apiKey.innerHTML = `Here is your API Key: <span class="highlight">${randomUUID}</span>`
+        })
+    </script>
+</body>
+
+</html>

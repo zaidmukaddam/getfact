@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "strict": true
+  },
+  "lint": {
+    "rules": {
+      "tags": ["recommended"],
+      "include": [
+        "camelcase",
+        "eqeqeq",
+        "explicit-function-return-type",
+        "no-await-in-loop",
+        "no-const-assign",
+        "no-eval"
+      ]
+    },
+    "files": {
+      "include": ["src/"]
+    }
+  },
+  "fmt": {
+    "files": {
+      "include": ["src/"]
+    },
+    "options": {
+      "useTabs": false,
+      "indentWidth": 2,
+      "singleQuote": false,
+      "proseWrap": "always",
+      "lineWidth": 80
+    }
+  }
+}
